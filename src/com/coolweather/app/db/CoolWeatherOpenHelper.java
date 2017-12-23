@@ -1,17 +1,17 @@
 package com.coolweather.app.db;
 
 import android.content.Context;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
 	
 	/**
 	 * Province  建表语句
 	 */
-	public static final String CREATE_PROVINCE = "create table Provider("
+	public static final String CREATE_PROVINCE = "create table Province("
 			+ "id integer primary key autoincrement,"
 			+ "province_name text,"
 			+ "province_code text"
@@ -45,8 +45,11 @@ public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		// 创建表
 		db.execSQL(CREATE_PROVINCE);
+		Log.d("zl", "创建 province 成功");
 		db.execSQL(CREATE_CITY);
+		Log.d("zl", "创建 city 成功");
 		db.execSQL(CREATE_COUNTY);
+		Log.d("zl", "创建 county 成功");
 	}
 
 	@Override
